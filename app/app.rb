@@ -2,7 +2,7 @@ class SampleBlog < Padrino::Application
   register Padrino::Helpers
   register Padrino::Mailer
   register Padrino::Rendering
-  #register SassInitializer
+  register SassInitializer
   
   # Add these routes below to the app file...
   get "/" do
