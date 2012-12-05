@@ -1,0 +1,15 @@
+!!! Strict
+%html
+  %head
+    %title= [@title, "Padrino Sample Blog"].compact.join(" | ")
+    = stylesheet_link_tag 'reset', 'application'
+    = javascript_include_tag 'jquery', 'application'
+    = yield_content :include
+  %body
+    #header
+      %h1 Matt's Sample Blog
+      %ul.menu
+        %li= link_to 'Blog', url_for(:posts, :index)
+        %li= link_to 'About', url_for(:about)
+    #container
+      #main= yield
