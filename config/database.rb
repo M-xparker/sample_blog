@@ -14,7 +14,7 @@
 #   }
 #
 
-postgres = URI.parse(ENV['DATABASE_URL'] || '')
+postgres = URI.parse(ENV['HEROKU_POSTGRESQL_GREEN_URL'] || '')
 
 ActiveRecord::Base.configurations[:production] = {
   :adapter  => 'postgresql',
