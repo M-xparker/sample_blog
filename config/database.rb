@@ -13,33 +13,29 @@
 #     :socket    => '/tmp/mysql.sock'
 #   }
 #
-
-postgres = URI.parse(ENV['HEROKU_POSTGRESQL_GREEN_URL'] || '')
-
-ActiveRecord::Base.configurations[:production] = {
-  :adapter  => 'postgresql',
-  :encoding => 'utf8',
-  :database => postgres.path[1..-1], 
-  :username => postgres.user,
-  :password => postgres.password,
-  :host     => postgres.host
-}
-
 ActiveRecord::Base.configurations[:development] = {
-  :adapter => 'sqlite3',
-  :database => Padrino.root('db', 'sample_blog_development.db')
-
+  :adapter => 'postgresql',
+  :host    => 'localhost',
+  :database => 'photo-app-development',
+  :username => 'postgres',
+  :password => 'postgres',
 }
 
 ActiveRecord::Base.configurations[:production] = {
-  :adapter => 'sqlite3',
-  :database => Padrino.root('db', 'sample_blog_production.db')
+  :adapter => 'postgresql',
+  :host      => 'localhost',
+  :database => 'photo-app-production',
+  :username => 'postgres',
+  :password => 'postgres',
 
 }
 
 ActiveRecord::Base.configurations[:test] = {
-  :adapter => 'sqlite3',
-  :database => Padrino.root('db', 'sample_blog_test.db')
+  :adapter => 'postgresql',
+  :host      => 'localhost',
+  :database => 'photo-app-test',
+  :username => 'postgres',
+  :password => 'postgres',
 
 }
 
